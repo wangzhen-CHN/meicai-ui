@@ -188,6 +188,7 @@ const onAddUser = (formEl) => {
       remember.value = data.remember;
       loading.value = false;
       userRef.value.getList();
+      userInfo.value = formValue.value;
       ElMessage.success("新增成功");
       queryOrder();
     }
