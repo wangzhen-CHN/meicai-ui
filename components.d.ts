@@ -19,7 +19,6 @@ declare module 'vue' {
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
-    ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
     ElTag: typeof import('element-plus/es')['ElTag']
     Loading: typeof import('element-plus/es')['ElLoadingDirective']
   }
