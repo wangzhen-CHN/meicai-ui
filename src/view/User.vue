@@ -101,7 +101,7 @@ const onDelete =  ({ id }) => {
   });
 };
 const getList = async () => {
-  const res = await http.get("/user/query");
+  const res = await http.get("/user/query",{timestamp:Number(new Date())});
   userList.value = res.data.map((d) => {
     return { ...d, color: "#" + Math.random().toString(16).substr(-6) };
   });

@@ -176,9 +176,13 @@ const onAddUser = (formEl) => {
       loading.value = true;
       const { success, msg, data } = await http.post(
         "/user/check",
-        formValue.value
+        {
+          ...formValue.value,
+          password:'S'+ btoa(formValue.value.password)
+        }
       );
       if (!success) {
+        loading.value = false;
         return ElMessage.error(msg || "新增失败");
       }
       remember.value = data.remember;
