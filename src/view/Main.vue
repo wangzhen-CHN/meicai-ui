@@ -3,7 +3,7 @@
     <el-container>
       <el-aside class="main-aside" width="300px">
         <el-header class="main-header">美餐助手</el-header>
-        <User @onSelect="onSelect" ref="userRef"/>
+        <User @onSelect="onSelect" ref="userRef" />
       </el-aside>
       <el-main class="main">
         <el-card>
@@ -60,18 +60,18 @@
                 placeholder="eg:张三"
               ></el-input>
             </el-form-item>
-            <div style="text-align: right;">
+            <div style="text-align: right">
               <el-button style="padding: 0 30px" @click="resetFormValue">
-              重置
-            </el-button>
-            <el-button
-              color="#626aef"
-              :loading="loading"
-              style="color: white; padding: 0 30px"
-              @click="onAddUser(ruleFormRef)"
-            >
-              添加
-            </el-button>
+                重置
+              </el-button>
+              <el-button
+                color="#626aef"
+                :loading="loading"
+                style="color: white; padding: 0 30px"
+                @click="onAddUser(ruleFormRef)"
+              >
+                添加
+              </el-button>
             </div>
           </el-form>
           <div class="title mt-40">用户信息</div>
@@ -87,18 +87,24 @@
             <div class="title flex">
               <div>点餐信息 <span class="tips">2022-01-15 11:30</span></div>
               <div v-if="orderList.length">
-                <span class="tips">{{orderList.findIndex((list) => list.status === '可点餐')===-1?'已全部点餐':'存在未点餐'}}</span>
+                <span class="tips">{{
+                  orderList.findIndex((list) => list.status === "可点餐") === -1
+                    ? "已全部点餐"
+                    : "存在未点餐"
+                }}</span>
                 <el-button
-                type="primary"
-                :loading="loading"
-                :disabled="orderList.findIndex((list) => list.status === '可点餐')===-1"
-                style="padding: 0 30px; margin-left: 10px"
-                @click="onOrder"
-              >
-                手动点餐
-              </el-button>
+                  type="primary"
+                  :loading="loading"
+                  :disabled="
+                    orderList.findIndex((list) => list.status === '可点餐') ===
+                    -1
+                  "
+                  style="padding: 0 30px; margin-left: 10px"
+                  @click="onOrder"
+                >
+                  手动点餐
+                </el-button>
               </div>
-              
             </div>
             <el-descriptions
               :column="2"
@@ -128,6 +134,14 @@
             </el-descriptions>
             <el-empty v-else />
           </div>
+          <div class='log'>
+            <el-button type="info" @click="onShowLog"> 查看日志 </el-button>
+          </div>
+          <ul class='log-box' v-if="logList.length>0">
+            <li v-for="log in logList" key="log">
+              {{log}}
+            </li>
+          </ul>
         </el-card>
       </el-main>
     </el-container>
@@ -145,6 +159,7 @@ const loading = ref(false);
 const infoLoading = ref(false);
 const remember = ref("");
 const userInfo = ref({});
+const logList = ref([]);
 const formValue = ref({
   username: "",
   password: "",
@@ -168,7 +183,7 @@ const onAddUser = (formEl) => {
       }
       remember.value = data.remember;
       loading.value = false;
-      userRef.value.getList()
+      userRef.value.getList();
       ElMessage.success("新增成功");
       queryOrder();
     }
@@ -212,6 +227,12 @@ const onOrder = async () => {
     infoLoading.value = false;
   }, 1000);
 };
+
+/** 查看日志 */
+const onShowLog = async()=>{
+  const {data} = await http.get("/log");
+  logList.value =data
+}
 </script>
 <style scoped>
 .flex {
@@ -261,5 +282,25 @@ const onOrder = async () => {
   text-align: left;
   font-size: 12px;
   color: #a5a7a4;
+}
+.log{
+  display: flex;
+  justify-content: flex-end;
+}
+.log-box{
+  box-sizing: border-box;
+  max-height:500px;
+  overflow-y: auto;
+  padding:5px;
+  text-align: left;
+  list-style: none;
+  color: #eee;
+  width: 100%;
+  background-color: #222;
+}
+.log-box li{
+  font-size: 14px;
+  list-style: none;
+  
 }
 </style>
