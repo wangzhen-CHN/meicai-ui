@@ -1,11 +1,11 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import Main from './view/Main.vue'
+import Layout from './view/Layout.vue'
 </script>
 
 <template>
-  <Main />
+  <Layout />
 </template>
 
 <style>
@@ -17,7 +17,7 @@ body {
 }
 
 #app {
-  min-width: 1200px;
+  min-width: 1000px;
   height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;

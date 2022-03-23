@@ -1,9 +1,13 @@
 <template>
-  <el-container class="main-container">
+  <el-container class="main-container" direction="vertical">
+    <el-header class="main-header">
+      <div class="logo"><img src="../assets/logo.png" width="40" style="margin-right: 10px" />美餐助手</div>
+      <div>v1.0</div>
+    </el-header>
     <el-container>
       <el-aside class="main-aside" width="300px">
-        <el-header class="main-header">美餐助手</el-header>
-        <User ref="userRef" @onSelect="onSelect" />
+        <Menu />
+        <!-- <User ref="userRef" @onSelect="onSelect" /> -->
       </el-aside>
       <el-main class="main">
         <el-card>
@@ -96,6 +100,7 @@
 <script setup lang="ts">
 import http from '../util/http'
 import User from './User.vue'
+import Menu from './Menu.vue'
 import { ref } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
 const ruleFormRef = ref()
@@ -181,7 +186,7 @@ const onShowLog = async () => {
   logList.value = data
 }
 </script>
-<style scoped>
+<style scoped lang="less">
 .flex {
   display: flex;
   align-items: center;
@@ -191,72 +196,72 @@ const onShowLog = async () => {
 .main-container {
   height: 100%;
   background: #f2f6f8;
-}
 
-.main-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  color: #fff;
-  font-weight: 700;
-  font-size: 20px;
-  /* background-color: #1e2329; */
-  border-bottom: 1px solid #38424e;
-}
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
 
-.main-aside {
-  height: 100%;
-  background: #303340;
-}
+    .logo {
+      &:extend(.flex);
+    }
+  }
 
-.marginBottom0 {
-  margin-bottom: 0;
-}
+  .main-aside {
+    height: 100%;
+    background-color: #fff;
+  }
 
-.title {
-  margin-top: 20px;
-  margin-bottom: 8px;
-  color: #11131a;
-  font-weight: 500;
-  font-size: 16px;
-  text-align: left;
-}
+  .marginBottom0 {
+    margin-bottom: 0;
+  }
 
-.mt-40 {
-  margin-top: 40px;
-}
+  .title {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #11131a;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: left;
+  }
 
-.el-descriptions {
-  padding: 10px 20px;
-  color: #6c7280;
-}
+  .mt-40 {
+    margin-top: 40px;
+  }
 
-.tips {
-  color: #a5a7a4;
-  font-size: 12px;
-  text-align: left;
-}
+  .el-descriptions {
+    padding: 10px 20px;
+    color: #6c7280;
+  }
 
-.log {
-  display: flex;
-  justify-content: flex-end;
-}
+  .tips {
+    color: #a5a7a4;
+    font-size: 12px;
+    text-align: left;
+  }
 
-.log-box {
-  box-sizing: border-box;
-  width: 100%;
-  max-height: 500px;
-  padding: 5px;
-  overflow-y: auto;
-  color: #eee;
-  text-align: left;
-  list-style: none;
-  background-color: #222;
-}
+  .log {
+    display: flex;
+    justify-content: flex-end;
+  }
 
-.log-box li {
-  font-size: 14px;
-  list-style: none;
+  .log-box {
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 500px;
+    padding: 5px;
+    overflow-y: auto;
+    color: #eee;
+    text-align: left;
+    list-style: none;
+    background-color: #222;
+  }
+
+  .log-box li {
+    font-size: 14px;
+    list-style: none;
+  }
 }
 </style>
