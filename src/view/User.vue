@@ -10,11 +10,12 @@
       <div class="value">{{ item.realname }}</div>
     </template>
   </el-autocomplete>
+  <!--  eslint-disable-next-line vue/no-multiple-template-root -->
   <ul class="user-box">
     <li
-      :class="activeUserName === item.username ? 'active user-item' : 'user-item'"
       v-for="item in userList"
       :key="item.label"
+      :class="activeUserName === item.username ? 'active user-item' : 'user-item'"
       @click="onActive(item)"
     >
       <div class="user-item-info">
@@ -30,15 +31,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import http from '../util/http'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { Search, UserFilled, Delete } from '@element-plus/icons-vue'
-const emit = defineEmits<{ (e: 'onSelect', user: {}): void }>()
+const emit = defineEmits(['onSelect'])
 const selectValue = ref('')
 const isAdmin = ref(location.search.indexOf('admin=wz') > 0)
 
-const checked = ref(false)
 const activeUserName = ref('')
 
 interface LinkItem {
@@ -48,7 +48,6 @@ interface LinkItem {
 }
 
 const userList = ref<LinkItem[]>([])
-let timeout: NodeJS.Timeout
 const querySearchAsync = (queryString: string, cb: (arg: any) => void) => {
   const results = queryString ? userList.value.filter(createFilter(queryString)) : userList.value
   cb(results)
@@ -65,7 +64,7 @@ const handleSelect = (item: LinkItem) => {
 }
 const onActive = (user: {}) => {
   activeUserName.value = user.username
-  //调用父组件方法
+  // 调用父组件方法
   emit('onSelect', user)
 }
 const onDelete = ({ id }) => {
@@ -85,7 +84,7 @@ const onDelete = ({ id }) => {
 const getList = async () => {
   const res = await http.get('/user/query', { timestamp: Number(new Date()) })
   userList.value = res.data.map((d) => {
-    return { ...d, color: '#' + Math.random().toString(16).substr(-6) }
+    return { ...d, color: `#${Math.random().toString(16).substr(-6)}` }
   })
 }
 /** 导出getList */

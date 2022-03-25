@@ -1,7 +1,7 @@
 <template>
   <el-menu default-active="1" class="el-menu-vertical-demo" active-text-color="#fff">
     <el-menu-item index="1">
-      <el-icon><document /></el-icon>
+      <el-icon><Document /></el-icon>
       <span>用户列表</span>
     </el-menu-item>
     <el-menu-item index="2">

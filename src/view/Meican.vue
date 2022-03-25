@@ -127,18 +127,18 @@ const onAddUser = (formEl) => {
   })
 }
 
-/** 登录 */
-const onSelect = async (user) => {
-  infoLoading.value = true
-  const { success, msg, data } = await http.post('/user/login', user)
-  if (!success) {
-    infoLoading.value = false
-    return ElMessage.error(msg || '登录失败')
-  }
-  userInfo.value = user
-  remember.value = data.remember
-  queryOrder()
-}
+// /** 登录 */
+// const onSelect = async (user) => {
+//   infoLoading.value = true
+//   const { success, msg, data } = await http.post('/user/login', user)
+//   if (!success) {
+//     infoLoading.value = false
+//     return ElMessage.error(msg || '登录失败')
+//   }
+//   userInfo.value = user
+//   remember.value = data.remember
+//   queryOrder()
+// }
 /** 订餐状态 */
 const queryOrder = async () => {
   infoLoading.value = true
