@@ -1,9 +1,9 @@
 <template>
   <el-header class="main-header">
-    <div class="logo"><img src="../assets/logo.png" />美餐助手</div>
+    <div class="logo"><img src="../assets/logo.png" />学习平台</div>
     <div class="flex items-center">
       <img class="avatar" src="../assets/avatar.jpg" />
-      <span class="ml-5">v1.0</span>
+      <span class="ml-10">v1.0</span>
     </div>
   </el-header>
 </template>

@@ -41,6 +41,7 @@ module.exports = {
       }
     ],
     'vue/attribute-hyphenation': 0,
+    'vue/no-multiple-template-root': 0,
     'vue/html-self-closing': 0,
     'vue/component-name-in-template-casing': 0,
     'vue/html-closing-bracket-spacing': 0,
