@@ -1,11 +1,11 @@
 <template>
-  <el-container class="main-container" direction="vertical">
+  <el-container class="layout-container" direction="vertical">
     <Header />
     <el-container>
-      <el-aside class="main-aside" width="300px">
+      <el-aside class="layout-aside" width="300px">
         <Menu />
       </el-aside>
-      <el-main class="main">
+      <el-main class="layout-main">
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -16,12 +16,17 @@ import Header from './header.vue'
 import Menu from './menu.vue'
 </script>
 <style scoped lang="less">
-.main-container {
+.layout-container {
   height: 100%;
   background: #f2f6f8;
 
-  .main-aside {
+  .layout-aside {
     height: 100%;
+    background-color: #fff;
+  }
+
+  .layout-main {
+    margin: 20px;
     background-color: #fff;
   }
 }

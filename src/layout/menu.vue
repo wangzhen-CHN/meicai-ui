@@ -17,7 +17,8 @@ import { Document, Setting } from '@element-plus/icons-vue'
 
 <style lang="less" scoped>
 .el-menu {
-  margin-top: 10px;
+  margin-top: 20px;
+  border-right: none;
   --el-menu-item-height: 48px;
 
   .el-menu-item {

@@ -5,22 +5,14 @@
 declare module 'vue' {
   export interface GlobalComponents {
     ElAside: typeof import('element-plus/es')['ElAside']
-    ElButton: typeof import('element-plus/es')['ElButton']
-    ElCard: typeof import('element-plus/es')['ElCard']
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElContainer: typeof import('element-plus/es')['ElContainer']
-    ElDescriptions: typeof import('element-plus/es')['ElDescriptions']
-    ElDescriptionsItem: typeof import('element-plus/es')['ElDescriptionsItem']
-    ElEmpty: typeof import('element-plus/es')['ElEmpty']
-    ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElIcon: typeof import('element-plus/es')['ElIcon']
-    ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
-    ElTag: typeof import('element-plus/es')['ElTag']
-    Loading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
 
-export {}
+export { }
