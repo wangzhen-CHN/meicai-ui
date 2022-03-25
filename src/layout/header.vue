@@ -1,15 +1,13 @@
 <template>
   <el-header class="main-header">
     <div class="logo"><img src="../assets/logo.png" />美餐助手</div>
-    <div class="">
-      <el-icon><Grid /></el-icon>
-      <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />v1.0
+    <div class="flex items-center">
+      <img class="avatar" src="../assets/avatar.jpg" />
+      <span class="ml-5">v1.0</span>
     </div>
   </el-header>
 </template>
-<script lang="ts" setup>
-import { Grid } from '@element-plus/icons-vue'
-</script>
+<script lang="ts" setup></script>
 >
 <style scoped lang="less">
 .main-header {
@@ -31,6 +29,11 @@ import { Grid } from '@element-plus/icons-vue'
       margin-right: 20px;
       border-radius: 5px;
     }
+  }
+
+  .avatar {
+    width: 40px;
+    border-radius: 20px;
   }
 }
 </style>
