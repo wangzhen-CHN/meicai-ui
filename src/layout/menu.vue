@@ -1,18 +1,26 @@
 <template>
-  <el-menu default-active="1" class="el-menu-vertical-demo" active-text-color="#fff">
-    <el-menu-item index="1">
-      <el-icon><Document /></el-icon>
-      <span>用户列表</span>
-    </el-menu-item>
-    <el-menu-item index="2">
-      <el-icon><Setting /></el-icon>
-      <span>其他功能</span>
-    </el-menu-item>
+  <el-menu default-active="1" class="el-menu-vertical-demo" active-text-color="#fff" router unique-opened>
+    <template v-for="route in routes">
+      <el-sub-menu v-if="route.children?.length" :key="route.path" :index="route.path">
+        <template #title>
+          <el-icon><Document /></el-icon>
+          <span>{{ route.name }}</span>
+        </template>
+        <el-menu-item v-for="child in route.children" :key="child.path" :index="child.path">{{ child.name }}</el-menu-item>
+      </el-sub-menu>
+      <el-menu-item v-else :key="route.path" :index="route.path">
+        <el-icon><Setting /></el-icon>
+        <template #title>{{ route.name }}</template>
+      </el-menu-item>
+    </template>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
 import { Document, Setting } from '@element-plus/icons-vue'
+import { useRouter } from 'vue-router'
+import { routes } from '../routes'
+console.log('🏳️‍🌈 <输出> routes', routes)
 </script>
 
 <style lang="less" scoped>
@@ -20,6 +28,11 @@ import { Document, Setting } from '@element-plus/icons-vue'
   margin-top: 20px;
   border-right: none;
   --el-menu-item-height: 48px;
+
+  .el-sub-menu {
+    margin: 5px 10px;
+    border-radius: 5px;
+  }
 
   .el-menu-item {
     margin: 5px 10px;

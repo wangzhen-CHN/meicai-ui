@@ -27,7 +27,8 @@ module.exports = {
     },
     spacing: {
       ...getPx(40, 1, 0), // 0px,1px...39px
-      ...getPx(13, 5, 40) // 40px,45px...100px
+      ...getPx(13, 5, 40), // 40px,45px...100px
+      ...getPx(10, 100, 100) // 100px,200px...1000px
     }
   },
   plugins: []
