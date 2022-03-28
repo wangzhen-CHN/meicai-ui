@@ -2,21 +2,24 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import path from 'path';
+import path from 'path'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   plugins: [
     vue(),
-    //自动导入
+    // 自动导入
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver()]
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
-    }),
+      resolvers: [ElementPlusResolver()]
+    })
   ],
+  alias: {
+    '@': path.resolve(__dirname, 'src')
+  },
   server: {
-    host: "localhost",
+    host: 'localhost',
     port: 9000,
     proxy: {
       '/api': {
@@ -28,13 +31,13 @@ export default defineConfig({
     }
   },
   css: {
-      preprocessorOptions: {
-        less: {
-          modifyVars: {
-            hack: `true; @import (reference) "${path.resolve('src/style/var.less')}";`,
-          },
-          javascriptEnabled: true,
-        }
+    preprocessorOptions: {
+      less: {
+        modifyVars: {
+          hack: `true; @import (reference) "${path.resolve('src/style/var.less')}";`
+        },
+        javascriptEnabled: true
       }
-    },
+    }
+  }
 })

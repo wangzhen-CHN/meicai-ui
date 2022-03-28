@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 const routes = [
   { path: '/', name: '用户列表', component: () => import('../view/user.vue') },
   { path: '/tailwind', name: 'tailwind', component: () => import('../view/tailwind.vue') },
@@ -15,8 +15,7 @@ const routes = [
   }
 ]
 const router = createRouter({
-  // 采用hash 模式
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 

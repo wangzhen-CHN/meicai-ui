@@ -29,6 +29,11 @@
         <div class="bg-sky-800 aspect-square"></div>
         <div class="bg-sky-900 aspect-square"></div>
       </div>
+      <div class="text-12 flex justify-between text-zinc-600 mb-10">
+        <span>sky-50</span>
+        <span>...</span>
+        <span>sky-900</span>
+      </div>
       <div class="grid grid-cols-10 gap-12 my-10">
         <div class="bg-blue-50 aspect-square"></div>
         <div class="bg-blue-100 aspect-square"></div>
@@ -40,6 +45,11 @@
         <div class="bg-blue-700 aspect-square"></div>
         <div class="bg-blue-800 aspect-square"></div>
         <div class="bg-blue-900 aspect-square"></div>
+      </div>
+      <div class="text-12 flex justify-between text-zinc-600 mb-10">
+        <span>blue-50</span>
+        <span>...</span>
+        <span>blue-900</span>
       </div>
       <div class="grid grid-cols-10 gap-12 my-10">
         <div class="bg-indigo-50 aspect-square"></div>
@@ -53,6 +63,11 @@
         <div class="bg-indigo-800 aspect-square"></div>
         <div class="bg-indigo-900 aspect-square"></div>
       </div>
+      <div class="text-12 flex justify-between text-zinc-600 mb-10">
+        <span>indigo-50</span>
+        <span>...</span>
+        <span>indigo-900</span>
+      </div>
       <div class="grid grid-cols-10 gap-12 my-10">
         <div class="bg-violet-50 aspect-square"></div>
         <div class="bg-violet-100 aspect-square"></div>
@@ -65,15 +80,16 @@
         <div class="bg-violet-800 aspect-square"></div>
         <div class="bg-violet-900 aspect-square"></div>
       </div>
+      <div class="text-12 flex justify-between text-zinc-600 mb-10">
+        <span>violet-50</span>
+        <span>...</span>
+        <span>violet-900</span>
+      </div>
     </el-card>
     <el-card style="width: 700px">
       <div class="flex font-sans">
         <div class="flex-none w-200 relative">
-          <img
-            src="https://tailwindcss.com/_next/static/media/classic-utility-jacket.0f108046e151c8576017eaf383406fe6.jpg"
-            alt=""
-            class="absolute inset-0 w-full h-full object-cover"
-          />
+          <img src="@/assets/pic1.jpg" alt="" class="absolute inset-0 w-full h-full object-cover" />
         </div>
         <form class="flex-auto p-24">
           <div class="flex flex-wrap">
@@ -151,11 +167,7 @@
     <el-card>
       <div class="flex font-sans">
         <div class="flex-none w-200 relative">
-          <img
-            src="https://tailwindcss.com/_next/static/media/classic-utility-jacket.0f108046e151c8576017eaf383406fe6.jpg"
-            alt=""
-            class="absolute inset-0 w-full h-full object-cover rounded-lg"
-          />
+          <img src="@/assets/kids.jpg" alt="" class="absolute inset-0 w-full h-full object-cover rounded-lg" />
         </div>
         <form class="flex-auto p-24">
           <div class="flex flex-wrap">
